@@ -1,46 +1,41 @@
-{% load bootstrap4 %}
-{% load static %}
+{% load bootstrap3 %}
+{% load static%}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% if title %}
-    <title>{{title}} | Zoom</title>
-    {% else %}
-    <title>Zoom</title>
-    {% endif %}
-
-    {% block styles %}
-        {% bootstrap_css %}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Cambay' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet'>
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
-    {% endblock %}
+  <meta charset="utf-8">
+  {% block styles%}
+  {{ super() }}
+     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+  {% endblock %}
+  
 </head>
 <body>
-    {% include 'navbar.html' %}
-    <div class="container search-section">
-        <div class="row">
-            <div class="col-md-12 search-form">
-                <form class="form-inline" role="search" action="{% url 'search_images' %}">
-                    <input class="form-control search-input" name="category" type="search" placeholder="Search categories" aria-label="Search">
-                </form>
-            </div>
-        </div>
-    </div>
-    <hr>
+    {% include "navbar.html" %}
 
-    {% block content %}
-    {% endblock %}
+    {% block content %} <h1 class='text-center'>News for {{date|date:"l d-F Y"}}</h1> {%endblock%}
 
     {% block scripts %}
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        {% bootstrap_javascript %}
-        <script src="{% static 'js/script.js' %}"></script>
-    {% endblock %}    
+    {{ super() }}
+   
+    <!-- JQuery -->
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <!-- Bootstrap tooltips -->
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+   <!-- Bootstrap core JavaScript -->
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <!-- MDB core JavaScript -->
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/js/mdb.min.js"></script>
+   
+   {% endblock %}
 </body>
 </html>
