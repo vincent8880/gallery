@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{block.super}}
+<div class="container-fluid">
+    <div class="row">
+        {% for img in images %}
+            <p id="img-copy"></p>
+            <div class="col-md-4 img-holder">
+                <div class="image-details">
+                    <p class="text-center"><a data-toggle="modal" data-target="#{{img.id}}">{{img.name}}</a></p>
+                </div>
+                <img src="{{img.image.cdn_url}}" alt="{{img.name}}">
+            </div>
+        {% empty %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="/static/img/404.jpeg" alt="Loading Image">
+                </div>
+                <div class="col-md-6">
+                    <h4>Awww...Don’t Cry.</h4>
+                    <p>Images are coming up soon</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% for img in images %}
+<div class="modal fade bd-example-modal-lg" id="{{img.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 modal-image">
+                            <a href="/image/{{img.category.photo_category}}/{{img.id}}">
+                                <img src="{{img.image.cdn_url}}" alt="{{img.name}}">
+                            </a>
+                        </div>
+                        <div class="col-md-12 modal-text">
+                            <h5 class="modal-title" id="modal-title"> {{img.name}} </h5>
+                            <hr>
+                            <p>{{img.description}}</p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a class="twitter-share-button" class="tooltip-test" title="Share on Twitter"
+                                        href="https://twitter.com/intent/tweet?text={{img.image.cdn_url}}" target="_blank">
+                                        <i class="fa fa-twitter fa-2x"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endfor %}
+{% endblock %}
