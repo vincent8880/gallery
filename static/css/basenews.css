@@ -112,9 +112,63 @@
 }
 
 .modal-image {
-  max-height: 629.73px;
+  max-height: 355px;
+  height: 100%;
   overflow: hidden;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
+.modal-text {
+  padding: 2rem 5rem;
+  color: black;
+}
+
+.modal-image img,
+.single-image img,
+.category-images img {
+  width: 100%;
+}
+
+.modal-image:hover {
+  opacity: 0.75;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single-image {
+  padding: 0;
+}
+
+.category-images {
+  padding: 1rem 0rem;
+}
+
+.category-text,
+.error-text {
+  display: flex;
+  align-items: center;
+}
+
+.single-text {
+  padding: 1rem;
+}
+
+.display-image {
+  box-shadow: 2px 4px 12px 2px #dcdcdc;
+  margin-bottom: 2rem;
+}
+
+.img-location {
+  height: 80%;
+}
+
+@media (min-width: 992px) {
+  .modal-lg {
+      max-width: 70%;
+      height: 90%;
+  }
+}
+
+
