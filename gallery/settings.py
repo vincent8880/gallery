@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'phot4.apps.Phot4Config',
-    'bootstrap3',
+    'bootstrap4',
     'pyuploadcare.dj',
     'django.contrib.admin',
     'django.contrib.auth',
