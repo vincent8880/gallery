@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'phot4.apps.Phot4Config',
     'bootstrap3',
+    'pyuploadcare.dj',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,3 +126,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+UPLOADCARE = {
+    'pub_key':'a915e71a9ef43ec684a7',
+    'secret':'3408272962ac76a173cd'
+}
