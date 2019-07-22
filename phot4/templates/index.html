@@ -2,11 +2,16 @@
 
 {% block content %}
 {{block.super}}
+
 <div class="container-fluid">
     <div class="row">
+            <div style="text-align: center;"class="col-md-12">
+                    <h2>Photo Gallery</h2>
+            </div>
+            <hr>
         {% for img in images %}
             <p id="img-copy"></p>
-            <div class="col-md-4 img-holder">
+            <div class="col-md-6 img-holder">
                 <div class="image-details">
                     <p class="text-center"><a data-toggle="modal" data-target="#{{img.id}}">{{img.name}}</a></p>
                 </div>
@@ -15,12 +20,8 @@
         {% empty %}
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <img src="/static/img/404.jpeg" alt="Loading Image">
-                </div>
-                <div class="col-md-6">
-                    <h4>Awww...Don’t Cry.</h4>
-                    <p>Images are coming up soon</p>
+                <div class="col-md- 12">
+                    <p>Images not found</p>
                 </div>
             </div>
         </div>
@@ -45,14 +46,11 @@
                         <p>{{img.description}}</p>
                         <p class="small">Posted <span class="font-weight-bold">{{img.post_date|timesince}}</span> ago </p>
                         <p class="small">Category <span class="font-weight-bold">{{img.category.photo_category}}</span></p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"> Share
-                                <a class="twitter-share-button" class="tooltip-test" title="Share on Twitter"
-                                    href="https://twitter.com/intent/tweet?text={{img.image.url}}" target="_blank">
-                                    <i class="fa fa-twitter fa-1x"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="modal-footer">
+                            <input name="" id="url-to-copy" style="position:relative;left:10000px">
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="copyUrl()">Copy Url</button>
+                        </div>
                     </div>
                 </div>
             </div>
